@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6d27318f837d4e988dfe66625b2a751b" Name="Diagram1">
+        <EntityTypeShape EntityType="WMSModel.Article" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSModel.Customer" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSModel.OrderLine" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSModel.Order" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSModel.Pallet" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WMSModel.Worker" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="WMSModel.FK__Pallets__Article__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="WMSModel.FK__Orders__Customer__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="WMSModel.FK__OrderLine__Order__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="WMSModel.FK__OrderLine__Palle__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="WMSModel.OrderWorker" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
