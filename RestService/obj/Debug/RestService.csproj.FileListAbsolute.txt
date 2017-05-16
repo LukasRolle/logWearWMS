@@ -1,0 +1,11 @@
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\RestService.dll.config
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\RestService.dll
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\RestService.pdb
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\DBC.exe
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\EntityFramework.dll
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\DBC.pdb
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\DBC.exe.config
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\bin\EntityFramework.xml
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\obj\Debug\RestService.csprojResolveAssemblyReference.cache
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\obj\Debug\RestService.dll
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\RestService\obj\Debug\RestService.pdb

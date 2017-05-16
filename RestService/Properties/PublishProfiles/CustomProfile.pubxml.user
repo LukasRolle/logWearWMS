@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAm0ONXjVyMUeQRGXDq9r4fgAAAAACAAAAAAAQZgAAAAEAACAAAADhxTflko6fMI19LfgQ0LJ+zKAYCbC+WToiB0ZPZmhhYwAAAAAOgAAAAAIAACAAAACbHEqdkjTzUMBbXHZ67s+wVSH19MuqXqHmoEOBr6JJGiAAAAAxitOlbFdJ5vUGJVSAkhK73pnX7WPqtAMwSX4+qy2kY0AAAADsHCSjXL0cBnJm0OqRqxCZTRXTqPkYx7ztFSGg/oj2dqpAKn2tuT4YNlYV9W02qN562yV14r6gEMpqnhxuwOtY</EncryptedPassword>
+    <_PublishTargetUrl>ftp://waws-prod-sn1-009.ftp.azurewebsites.windows.net/RestService</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/DBC.exe">
+      <publishTime>05/16/2017 14:02:06</publishTime>
+    </File>
+    <File Include="bin/DBC.exe.config">
+      <publishTime>04/04/2017 14:18:12</publishTime>
+    </File>
+    <File Include="bin/DBC.pdb">
+      <publishTime>05/16/2017 14:02:06</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>01/04/2017 00:44:16</publishTime>
+    </File>
+    <File Include="bin/RestService.dll">
+      <publishTime>05/16/2017 14:02:06</publishTime>
+    </File>
+    <File Include="bin/RestService.pdb">
+      <publishTime>05/16/2017 14:02:06</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>05/16/2017 14:02:10</publishTime>
+    </File>
+    <File Include="RestService.svc">
+      <publishTime>04/18/2017 14:51:40</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/16/2017 14:02:09</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
