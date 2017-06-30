@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="WMS-API-logWear" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Lukas\\Documents\\BachelorThesis\.git\\WMS\\WMS\\ConsoleApp2\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Lukas\\Documents\\BachelorThesis\.git\\WMS\\WMS\\ConsoleApp2\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="DBC.WMSEntities-Web.config Connection String" description="" value="" tags="" />
+</parameters>

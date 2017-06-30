@@ -1,0 +1,6 @@
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Debug\ConsoleApp2.exe.config
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Debug\ConsoleApp2.exe
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Debug\ConsoleApp2.pdb
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\obj\Debug\ConsoleApp2.exe
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\obj\Debug\ConsoleApp2.pdb
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\obj\Debug\ConsoleApp2.csprojResolveAssemblyReference.cache

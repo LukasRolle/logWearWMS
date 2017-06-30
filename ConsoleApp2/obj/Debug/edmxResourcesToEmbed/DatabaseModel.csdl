@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Article">
+    <Key>
+      <PropertyRef Name="ArticleNumber" />
+    </Key>
+    <Property Name="ArticleNumber" Type="Int32" Nullable="false" />
+    <Property Name="ArticleName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pallets" Relationship="Self.FK__Pallets__Article__619B8048" FromRole="Articles" ToRole="Pallets" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerNumber" />
+    </Key>
+    <Property Name="CustomerNumber" Type="Int32" Nullable="false" />
+    <Property Name="AdditionalWishes" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__Customer__5812160E" FromRole="Customers" ToRole="Orders" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+  </EntityType>
+  <EntityType Name="OrderLine">
+    <Key>
+      <PropertyRef Name="OrderNumber" />
+      <PropertyRef Name="PalletNumber" />
+      <PropertyRef Name="OrderLineNumber" />
+    </Key>
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="PalletNumber" Type="Int32" Nullable="false" />
+    <Property Name="OrderLineNumber" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Acknowledgement" Type="Boolean" />
+    <NavigationProperty Name="Order" Relationship="Self.FK__OrderLine__Order__6477ECF3" FromRole="OrderLines" ToRole="Orders" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+    <NavigationProperty Name="Pallet" Relationship="Self.FK__OrderLine__Palle__656C112C" FromRole="OrderLines" ToRole="Pallets" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderNumber" />
+    </Key>
+    <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+    <Property Name="CustomerNumber" Type="Int32" />
+    <Property Name="OrderPacked" Type="Boolean" />
+    <NavigationProperty Name="Customer" Relationship="Self.FK__Orders__Customer__5812160E" FromRole="Orders" ToRole="Customers" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK__OrderLine__Order__6477ECF3" FromRole="Orders" ToRole="OrderLines" />
+    <NavigationProperty Name="Workers" Relationship="Self.OrderWorker" FromRole="Orders" ToRole="Workers" />
+  </EntityType>
+  <EntityType Name="Pallet">
+    <Key>
+      <PropertyRef Name="PalletNumber" />
+    </Key>
+    <Property Name="PalletNumber" Type="Int32" Nullable="false" />
+    <Property Name="StorageLocation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ArticleNumber" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <NavigationProperty Name="Article" Relationship="Self.FK__Pallets__Article__619B8048" FromRole="Pallets" ToRole="Articles" />
+    <NavigationProperty Name="OrderLines" Relationship="Self.FK__OrderLine__Palle__656C112C" FromRole="Pallets" ToRole="OrderLines" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+  </EntityType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="WorkerNumber" />
+    </Key>
+    <Property Name="WorkerNumber" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Orders" Relationship="Self.OrderWorker" FromRole="Workers" ToRole="Orders" a:GetterAccess="Internal" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Internal" />
+  </EntityType>
+  <Association Name="FK__Pallets__Article__619B8048">
+    <End Role="Articles" Type="Self.Article" Multiplicity="0..1" />
+    <End Role="Pallets" Type="Self.Pallet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="ArticleNumber" />
+      </Principal>
+      <Dependent Role="Pallets">
+        <PropertyRef Name="ArticleNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Customer__5812160E">
+    <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerNumber" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderLine__Order__6477ECF3">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderNumber" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="OrderNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderLine__Palle__656C112C">
+    <End Role="Pallets" Type="Self.Pallet" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pallets">
+        <PropertyRef Name="PalletNumber" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="PalletNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderWorker">
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <End Role="Workers" Type="Self.Worker" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="WMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Articles" EntityType="Self.Article" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="OrderLines" EntityType="Self.OrderLine" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Pallets" EntityType="Self.Pallet" />
+    <EntitySet Name="Workers" EntityType="Self.Worker" />
+    <AssociationSet Name="FK__Pallets__Article__619B8048" Association="Self.FK__Pallets__Article__619B8048">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Pallets" EntitySet="Pallets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Customer__5812160E" Association="Self.FK__Orders__Customer__5812160E">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderLine__Order__6477ECF3" Association="Self.FK__OrderLine__Order__6477ECF3">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderLine__Palle__656C112C" Association="Self.FK__OrderLine__Palle__656C112C">
+      <End Role="Pallets" EntitySet="Pallets" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="OrderWorker" Association="Self.OrderWorker">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="Workers" EntitySet="Workers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

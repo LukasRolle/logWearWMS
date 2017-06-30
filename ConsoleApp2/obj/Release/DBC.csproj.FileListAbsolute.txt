@@ -1,0 +1,10 @@
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Release\DBC.exe.config
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Release\DBC.exe
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Release\DBC.pdb
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Release\EntityFramework.dll
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Release\EntityFramework.xml
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\obj\Release\DBC.csprojResolveAssemblyReference.cache
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\obj\Release\DBC.exe
+C:\Users\Lukas\Documents\BachelorThesis.git\WMS\WMS\ConsoleApp2\obj\Release\DBC.pdb

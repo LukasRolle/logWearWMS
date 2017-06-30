@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Articles">
+    <Key>
+      <PropertyRef Name="ArticleNumber" />
+    </Key>
+    <Property Name="ArticleNumber" Type="int" Nullable="false" />
+    <Property Name="ArticleName" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerNumber" />
+    </Key>
+    <Property Name="CustomerNumber" Type="int" Nullable="false" />
+    <Property Name="AdditionalWishes" Type="varchar" MaxLength="255" />
+    <Property Name="CustomerAddress" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="OrderLines">
+    <Key>
+      <PropertyRef Name="OrderNumber" />
+      <PropertyRef Name="PalletNumber" />
+      <PropertyRef Name="OrderLineNumber" />
+    </Key>
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="PalletNumber" Type="int" Nullable="false" />
+    <Property Name="OrderLineNumber" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Acknowledgement" Type="bit" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderNumber" />
+    </Key>
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="CustomerNumber" Type="int" />
+    <Property Name="OrderPacked" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderWorker">
+    <Key>
+      <PropertyRef Name="OrderNumber" />
+      <PropertyRef Name="WorkerNumber" />
+    </Key>
+    <Property Name="OrderNumber" Type="int" Nullable="false" />
+    <Property Name="WorkerNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pallets">
+    <Key>
+      <PropertyRef Name="PalletNumber" />
+    </Key>
+    <Property Name="PalletNumber" Type="int" Nullable="false" />
+    <Property Name="StorageLocation" Type="varchar" MaxLength="255" />
+    <Property Name="ArticleNumber" Type="int" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Workers">
+    <Key>
+      <PropertyRef Name="WorkerNumber" />
+    </Key>
+    <Property Name="WorkerNumber" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__OrderLine__Order__6477ECF3">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderNumber" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="OrderNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderLine__Palle__656C112C">
+    <End Role="Pallets" Type="Self.Pallets" Multiplicity="1" />
+    <End Role="OrderLines" Type="Self.OrderLines" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pallets">
+        <PropertyRef Name="PalletNumber" />
+      </Principal>
+      <Dependent Role="OrderLines">
+        <PropertyRef Name="PalletNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Customer__5812160E">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerNumber" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="CustomerNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderWork__Order__5BE2A6F2">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+    <End Role="OrderWorker" Type="Self.OrderWorker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="OrderNumber" />
+      </Principal>
+      <Dependent Role="OrderWorker">
+        <PropertyRef Name="OrderNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderWork__Worke__5CD6CB2B">
+    <End Role="Workers" Type="Self.Workers" Multiplicity="1" />
+    <End Role="OrderWorker" Type="Self.OrderWorker" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workers">
+        <PropertyRef Name="WorkerNumber" />
+      </Principal>
+      <Dependent Role="OrderWorker">
+        <PropertyRef Name="WorkerNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pallets__Article__619B8048">
+    <End Role="Articles" Type="Self.Articles" Multiplicity="0..1" />
+    <End Role="Pallets" Type="Self.Pallets" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Articles">
+        <PropertyRef Name="ArticleNumber" />
+      </Principal>
+      <Dependent Role="Pallets">
+        <PropertyRef Name="ArticleNumber" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WMSModelStoreContainer">
+    <EntitySet Name="Articles" EntityType="Self.Articles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderLines" EntityType="Self.OrderLines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderWorker" EntityType="Self.OrderWorker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pallets" EntityType="Self.Pallets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__OrderLine__Order__6477ECF3" Association="Self.FK__OrderLine__Order__6477ECF3">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderLine__Palle__656C112C" Association="Self.FK__OrderLine__Palle__656C112C">
+      <End Role="Pallets" EntitySet="Pallets" />
+      <End Role="OrderLines" EntitySet="OrderLines" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Customer__5812160E" Association="Self.FK__Orders__Customer__5812160E">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderWork__Order__5BE2A6F2" Association="Self.FK__OrderWork__Order__5BE2A6F2">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderWorker" EntitySet="OrderWorker" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderWork__Worke__5CD6CB2B" Association="Self.FK__OrderWork__Worke__5CD6CB2B">
+      <End Role="Workers" EntitySet="Workers" />
+      <End Role="OrderWorker" EntitySet="OrderWorker" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pallets__Article__619B8048" Association="Self.FK__Pallets__Article__619B8048">
+      <End Role="Articles" EntitySet="Articles" />
+      <End Role="Pallets" EntitySet="Pallets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

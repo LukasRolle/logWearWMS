@@ -11,25 +11,25 @@ namespace RestService
     [ServiceContract]
     public interface IRestService
     {
-        
+
         [OperationContract]
         [WebGet(UriTemplate = "Order/?id={id}")]
         void GetOrder(int id);
-        
+
         [OperationContract]
         [WebGet(UriTemplate = "NextOrder/?id={id}")]
         void GetNextOrder(int id);
 
         [OperationContract]
-        [WebInvoke(Method = "PATCH", UriTemplate = "ResetDatabase")]
+        [WebInvoke(Method = "PUT", UriTemplate = "ResetDatabase")]
         void ResetDatabase();
 
         [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "ConfirmOrderLine/?orderId={orderId}&orderLineId={orderLineId}")]
+        [WebInvoke(Method = "POST", UriTemplate = "ConfirmOrderLine/?orderId={orderId}&orderLineId={orderLineId}")]
         void ConfirmOrderLine(int orderId, int orderLineId);
 
         [OperationContract]
-        [WebInvoke(Method = "PUT", UriTemplate = "ConfirmOrder/?orderId={id}")]
+        [WebInvoke(Method = "POST", UriTemplate = "ConfirmOrder/?orderId={id}")]
         void ConfirmOrder(int id);
 
     }
